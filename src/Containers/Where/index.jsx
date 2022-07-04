@@ -1,15 +1,15 @@
 import React from 'react';
 import TopBar from './../../Components/TopBar';
 
-const Benefits = () => {
+const Where = () => {
     return (
     <> 
-      <TopBar/>      
+      <TopBar/>          
       <div> 
-        Soy el Benefits padre
+        Soy el donde encontrarnos padre
       </div>
     </>
   )
 }
 
-export default Benefits;
+export default Where;

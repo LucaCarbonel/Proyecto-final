@@ -8,8 +8,19 @@
   display: flex;
 
   &__profile {
-    position: fixed;
-    right: 20px;
+    position: absolute;
+    right: 15px;
+    display: flex;
+    height: 80px;
+    align-items: center;
+
+    &-avatar {
+      margin-left: 5px;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      background-color: #98edaa;
+    }
   }
 
   &__logo {
@@ -23,5 +34,13 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    &-routes {
+      cursor: pointer;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }

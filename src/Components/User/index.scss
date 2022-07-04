@@ -1,0 +1,42 @@
+.user {
+  width: 400px;
+  height: 400px;
+  background: 
+  linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+  linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+  linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+  ;
+  border-radius: 20px;
+  padding: 20px;
+
+  &__avatar {
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    align-items: center;
+
+    &-img {
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      background-color: #98edaa;
+    }
+  }
+
+  &__text {
+    display: flex;
+    margin: 5% 0;
+    align-items: center;
+
+    &-title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    &-sub-title {
+      font-size: 20px;
+      margin-left: 5px;
+    }
+
+  }
+}
