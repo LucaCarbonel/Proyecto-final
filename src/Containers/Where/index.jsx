@@ -1,15 +1,15 @@
 import React from 'react';
 import TopBar from './../../Components/TopBar';
 
-const AboutUs = () => {
+const Where = () => {
     return (
-    <>
+    <> 
       <TopBar/>
       <div> 
-        Soy el AboutUs padre
+        Soy el Where padre
       </div>
     </>
   )
 }
 
-export default AboutUs;
+export default Where;

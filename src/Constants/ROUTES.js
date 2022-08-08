@@ -7,4 +7,5 @@ export const ROUTES = {
   signup: '/signup',
   profile: '/profile',
   benefits: '/benefits',
+  where: '/where',
 };

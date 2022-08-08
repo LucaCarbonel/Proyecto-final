@@ -1,4 +1,4 @@
-@import './../../constants/colors.scss';
+@import './../../Constants/colors.scss';
 @import './../../Constants/fonts.scss';
 
 .top-bar {
@@ -23,5 +23,36 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    
+    &-item {
+      font-family: $Blinker;
+      font-weight: 400;
+      font-size: 32;
+    }
+  }
+  
+  &__buttons {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-left: 50px;
+
+    &-button {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      padding-left: 15px;
+      padding-right: 15px;
+      font-family: $Blinker;
+      font-weight: 700;
+      font-size: 32;
+      color: white;
+      background-color: $tertiary-green;
+      border-color: rgba(33,33,33, 0.33);
+      border-radius: 15px;
+      box-shadow: 3px 5px 10px rgba(32,32,32, 0.5);
+    }
+
   }
 }

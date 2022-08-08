@@ -1,12 +1,11 @@
 import React from 'react';
+import './index.scss';
 
 const SignUp = () => {
     return (
-    <> 
-      <div> 
-        Soy el SignUp padre
-      </div>
-    </>
+    <div className="signUp">
+      
+    </div>
   )
 }
 

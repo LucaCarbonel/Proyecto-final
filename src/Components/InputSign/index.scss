@@ -1,0 +1,20 @@
+@import './../../Constants/colors.scss';
+@import './../../Constants/fonts.scss';
+
+.input{
+  width: 775px;
+  height: 90px;
+  padding-left: 90px;
+  font-family: $Blinker;
+
+  &__box {
+    height: 90px;
+  }
+
+  &__asterisk {
+    font-family: $Blinker;
+    color: $asterisk;
+    font-size: 60px;
+    z-index: 2;
+  }
+}

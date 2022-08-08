@@ -3,41 +3,37 @@ import { useNavigate } from "react-router-dom";
 
 import { ROUTES } from './../../Constants/ROUTES';
 
-// import { ReactComponent as Logo } from './../../Assets/logo.svg';
 import Logo from './../../Assets/logo.png';
 
 import './index.scss';
 
-
 const TopBar = () => {
   let navigate = useNavigate();
 
-  const redirectHome = () => {
-    navigate(ROUTES.home)
-  }
     return (
     <div className="top-bar"> 
       <img 
         alt="logo"
         src={Logo}
-        onClick={redirectHome}
+        onClick={() => navigate(ROUTES.home)}
         className="top-bar__logo"
       />
       <div className="top-bar__items">
-        <div>
+        <div className="top-bar__items-item" onClick={() => navigate(ROUTES.home)}>
           Home
         </div>
-        <div>
+        <div className="top-bar__items-item" onClick={() => navigate(ROUTES.about)}>
           ¿Quienes somos?
         </div>
-        <div>
+        <div className="top-bar__items-item" onClick={() => navigate(ROUTES.where)}>
           ¿Donde encontrarnos?
         </div>
-        <div>
+        <div className="top-bar__items-item" onClick={() => navigate(ROUTES.benefits)}>
           Beneficios
         </div>
       </div>
-      <div className="top-bar__profile">
+      {localStorage.getItem("access-token") ?
+      (<div className="top-bar__profile">
         <div className="top-bar__profile-all-name">
           <div className="top-bar__profile-name">
             Juan
@@ -49,7 +45,18 @@ const TopBar = () => {
         <div className="top-bar__profile-avatar">
           avatar
         </div>
-      </div>
+      </div>) 
+      : (<>
+        <div className="top-bar__buttons">
+          <button className="top-bar__buttons-button" onClick={() => navigate(ROUTES.signup)}>
+            Registrarse
+          </button>
+          <button className="top-bar__buttons-button" onClick={() => navigate(ROUTES.signin)}>
+            Iniciar sesion
+          </button>
+        </div>
+      </>
+      )}
     </div>
   )
 }

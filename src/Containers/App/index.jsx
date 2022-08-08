@@ -13,6 +13,7 @@ import SignUp from './../SignUp';
 import AboutUs from './../AboutUs';
 import Benefits from './../Benefits';
 import NotFound from './../NotFound';
+import Where from './../Where';
 import './index.scss';
 
 const App = () => (
@@ -23,6 +24,7 @@ const App = () => (
       <Route exact path={ROUTES.profile} element={<Profile/>} />
       <Route exact path={ROUTES.signin} element={<SignIn/>} />
       <Route exact path={ROUTES.signup} element={<SignUp/>} />
+      <Route exact path={ROUTES.where} element={<Where/>} />
       <Route exact path={ROUTES.about} element={<AboutUs/>} />
       <Route exact path={ROUTES.benefits} element={<Benefits/>} />
     </Routes>
