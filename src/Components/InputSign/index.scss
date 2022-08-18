@@ -1,20 +1,55 @@
 @import './../../Constants/colors.scss';
 @import './../../Constants/fonts.scss';
 
-.input{
-  width: 775px;
-  height: 90px;
-  padding-left: 90px;
-  font-family: $Blinker;
+.inputBox{
+  height: 50px;
+  width: 400px;
+  
+  &__input{
+    width: 400px;
+    height: 50px;
+    padding-left: 55px;
+    font-family: $Blinker;
+    background-color: $light;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    border-color: rgba(32,32,32, 0.3);
+    box-shadow: 3px 5px 10px rgba(32,32,32, 0.5);
+    font-size: 20px;
+    position: relative;
+  }
 
-  &__box {
-    height: 90px;
+  &__input2{
+    margin-top: 40px;
+    width: 400px;
+    height: 50px;
+    padding-left: 55px;
+    font-family: $Blinker;
+    background-color: $light;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    border-color: rgba(32,32,32, 0.3);
+    box-shadow: 3px 5px 10px rgba(32,32,32, 0.5);
+    font-size: 20px;
+    position: relative;
+  }
+
+  &__icon {
+    position: relative;
+    top: -40px;
+    z-index: 3;
+    left: 15px;
   }
 
   &__asterisk {
+    z-index: 2;
+    position: relative;
+    top: 50px;
+    font-size: 30px;
+    left: 430px;
     font-family: $Blinker;
     color: $asterisk;
-    font-size: 60px;
-    z-index: 2;
   }
 }

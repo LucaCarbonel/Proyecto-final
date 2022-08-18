@@ -4,4 +4,57 @@
 .signUp {
   width: 100vw;
   height: 100hw;
+  display: flex;
+
+  &__form {
+    width: 50%;
+    min-height: 450px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+
+  &__back {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 150px;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: 400;
+    font-family: $Blinker;
+  }
+
+  &__image{
+    margin-top: 100px;
+
+    &-view {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: $light-grey;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    &-empty {
+      border-radius: 50%;
+    }
+
+    &-add {
+      width: 40px;
+      height: 40px;
+      background-color: white;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      position: relative;
+      bottom: 45px;
+      left: 105px;
+    }
+  }
+
+  &__box {    
+    width: 50%;
+  }
 }
