@@ -1,11 +1,13 @@
-/* eslint-disable import/prefer-default-export */
-
-export const User = {  
+const User = {  
   nombre:"Nicolas",
   apellido:"Barreto",
   email: "NicolasBarreto@gmail.com",
   empresa: "oneTree",
-  contraseña: "1234567",
+  password: "12345678",
   img_perfil: "https://co.pinterest.com/pin/577234877213934730/",
   ubicacion: {}
+}
+
+export {
+  User
 }

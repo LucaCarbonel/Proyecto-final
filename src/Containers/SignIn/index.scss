@@ -1,0 +1,95 @@
+@import './../../Constants/colors.scss';
+@import './../../Constants/fonts.scss';
+
+.signIn {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &__form {
+    margin-top: 8%;
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 3%;
+  }
+
+  &__back {
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    width: 250px;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: 400;
+    font-family: $Blinker;
+    cursor: pointer;
+  }
+
+  &__button {
+    width: 200px;
+    white-space: nowrap;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-family: $Blinker;
+    font-weight: 700;
+    font-size: 18px;
+    color: white;
+    background-color: $primary-green;
+    border-color: rgba(33,33,33, 0.33);
+    border-radius: 10px;
+    box-shadow: 3px 5px 10px rgba(32,32,32, 0.5);
+    cursor: pointer;
+   
+    &-box {
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__recovery {
+    align-items: center;
+    color: $link;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    margin-top: 70px;
+  }
+
+  &__redirect {
+    align-items: center;
+    color: $link;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    cursor: pointer
+  }
+
+  &__error {
+    display: flex ;
+    justify-content: center;
+    color: $asterisk;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: $Blinker;
+    margin-top: 10px;
+    margin-bottom: -27.5px;
+    width: 100%;
+  }
+}
