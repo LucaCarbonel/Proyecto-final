@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState } from 'react';
 
 import { useNavigate } from "react-router-dom";
 
 import Input from "./../../Components/InputSign"
 
 import { ROUTES } from './../../Constants/ROUTES';
-import { User } from './../../Constants/mockedData'
+import { USER } from './../../Constants/mockedData'
 
 import {ReactComponent as Password} from './../../Assets/password.svg';
 import {ReactComponent as At} from './../../Assets/at.svg';
@@ -23,10 +23,8 @@ const SignIn = () => {
   const [error, setError] = useState('');
 
   const handlerSignIn = () => {
-    console.log(User.email)
-    console.log(User.password)
     if (email && password) {
-      if (email.toLowerCase() === User.email.toLowerCase() && password === User.password){
+      if (email.toLowerCase() === USER.email.toLowerCase() && password === USER.password){
       navigate(ROUTES.home)
       } else {
         setError('El email o la contraseña son incorrectos')
