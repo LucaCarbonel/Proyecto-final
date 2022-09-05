@@ -1,0 +1,340 @@
+@import './../../Constants/colors.scss';
+@import './../../Constants/fonts.scss';
+
+.benefits {
+  width: 93vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__benefits {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 3vw;
+  }
+
+  &__header {
+    height: 50px;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    margin-bottom: -30px;
+
+    &-icon {
+      width: 50px;
+      height: 50px;
+      background-color: $light-grey;
+      border-radius: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-style: solid;
+      border-width: 1px;
+      border-color: $dark;
+      cursor: pointer;
+      margin-right: 20px;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &__image {
+    background-color: $dark;
+    width: 300px;
+    height: 200px;
+    margin-bottom: 60px;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: $tertiary-green;
+    border-style: inset;
+    box-shadow: -10px 10px 8px rgba(32,32,32, 0.5);
+  }
+
+  &__modal {
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: $tertiary-green;
+    border-style: inset;
+    z-index: 1;
+    width: 300px;
+    height: 350px;
+    background-color: $dark;
+    border: none;
+    border-radius: 10px;
+    box-shadow: -10px 10px 8px rgba(32,32,32, 0.5);
+
+    &-image {
+      width: 300px;
+      height: 200px;
+      border-radius: 10px 10px 0 0;
+    }
+
+    &-descripcion {
+      font-family: $Blinker;
+      color: $light;
+      font-size: 14px;
+      margin: 10px;
+      text-align: center;
+    }
+
+    &-empresa {
+      font-family: $Blinker;
+      position: relative;
+      top: 56px;
+      left: 20px;
+      color: $tertiary-yellow;
+      font-size: 14px;
+    }
+
+    &-precio {
+      font-family: $Blinker;
+      position: relative;
+      top: 33px;
+      right: 20px;
+      text-align: end;
+      color: $orange;
+      font-size: 18px;
+    }
+
+    &-overlay {
+      top: 0;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-cross {
+      position: absolute;
+      right: 40px;
+      top: 40px;
+      cursor: pointer;
+    }
+
+  }
+
+  &__create {
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: $tertiary-green;
+    border-style: inset;
+    z-index: 1;
+    width: 750px;
+    height: auto;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: -10px 10px 8px rgba(32,32,32, 0.5);
+    display: flex;
+    outline: none;
+    padding: 30px 15px;
+    flex-direction: column;
+    margin: 15px;
+
+    &-flex {
+      display: flex;
+      justify-content: space-around;
+
+      &-column {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    &-description {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      &-textarea {
+        width: 90%;
+        height: 150px;
+        margin: 10px;
+        padding: 10px;
+        font-size: 16px;
+        font-family: $Blinker;
+        resize: none;
+        border-radius: 3px;
+        margin-top: 20px;
+      }
+    }
+
+    &-valor {
+      display: flex;
+      margin-top: 20px;
+      margin-left: 10px;
+
+      &-input {
+        width: 60px;
+        font-size: 16px;
+        font-family: $Blinker;
+        padding: 5px;
+        margin-left: 10px;
+        height: 26px;
+      }
+    }
+    
+    &-text {
+      font-size: 24px;
+      font-family: $Blinker;
+      white-space: nowrap;
+      margin-left: 10px;
+      resize: none;
+    }
+
+    &-buttons {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      margin-top: 20px;
+
+      &-ok {
+        margin-right: 15px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-family: $Blinker;
+        font-weight: 700;
+        font-size: 32;
+        color: white;
+        background-color: $tertiary-green;
+        border-color: rgba(33,33,33, 0.33);
+        border-radius: 15px;
+        box-shadow: 3px 5px 10px rgba(32,32,32, 0.5);
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+
+      &-cancel {
+        margin-left: 15px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-family: $Blinker;
+        font-weight: 700;
+        font-size: 32;
+        color: white;
+        background-color: #de3333;
+        border-color: rgba(33,33,33, 0.33);
+        border-radius: 15px;
+        box-shadow: 3px 5px 10px rgba(32,32,32, 0.5);
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    &-preview {
+      height: 0;
+
+      &-able {
+        bottom: 45px;
+        position: relative;
+        left: 685px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: $light;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+
+      &-disable {
+        bottom: 45px;
+        position: relative;
+        left: 685px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: $light;
+        cursor: not-allowed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    &-error {
+      color: $asterisk;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      font-family: $Blinker;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    &-image{
+      display: flex;
+      flex-direction: column;
+
+      &-add {
+        width: 40px;
+        height: 40px;
+        position: relative;
+        bottom: 45px;
+        left: 105px;
+      }
+
+      &-label {
+        width: 60px;
+        height: 60px;
+        background-color: white;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        cursor: pointer;
+        margin-left: 200px;
+        margin-top: -30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      &-view {
+        width: 380px;
+        height: 260px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $light-grey;
+        margin-top: 12.5px;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+.benefits__image:hover{
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.benefits__modal:focus {
+  outline:0;
+}

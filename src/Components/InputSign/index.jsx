@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './index.scss';
 
 const InputSign = ({value, placeholder, Icon, isRequired, type, setValue}) => {
@@ -16,5 +17,18 @@ const InputSign = ({value, placeholder, Icon, isRequired, type, setValue}) => {
     </div>
   )
 };
+
+InputSign.propTypes = {
+  value: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  Icon: PropTypes.oneOf(['img', 'svg']).isRequired,
+  isRequired: PropTypes.bool.isRequired,
+  type: PropTypes.string,
+  setValue: PropTypes.func.isRequired,
+}
+
+InputSign.defaultProps  = {
+  type: ''
+}
 
 export default InputSign;

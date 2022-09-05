@@ -3,6 +3,8 @@ import React, {useState, useEffect} from 'react';
 import { useNavigate } from "react-router-dom";
 
 import Input from "./../../Components/InputSign"
+import unloggedRoute from "./../../Hocs/unloggedRoute"
+import { createUser, getUsers } from "./../../api/api.services"
 
 import { ROUTES } from './../../Constants/ROUTES';
 
@@ -36,15 +38,25 @@ const SignUp = () => {
   const handlerSignUp = () => {
     if (name && surname && email && password && confirmPassword) {
       if(password.length < 8 && confirmPassword.length < 8 ) {
-        setError('La contraseña debe de tener mas de almenos 8 caracteres')
+        setError('La contraseña debe de tener almenos 8 caracteres')
         } else {
           if(password !== confirmPassword){
             setError('Las contraseñas no son iguales')
           } else {
-            if ((email.search('@') === -1 && email.search('.') === -1) || email.search('@') < email.search('.') ) {
+            if ((email.search('@') === -1 && email.search('.') === -1) || email.search('@') < email.search('.')) {
               setError('El email no es valido')
             } else {
-              navigate(ROUTES.home)
+              createUser(
+              name,
+              surname,
+              email,
+              password,
+              image,
+              null,
+              null).then(() => 
+                navigate(ROUTES.home)
+              );
+
             }
           }
         }
@@ -53,12 +65,19 @@ const SignUp = () => {
     }
   }
 
+
+  getUsers().then((response) => {
+    console.log(response)
+  }).catch((err) => {
+    console.log(err)
+  })
+
     return (
     <div className="signUp">
       <div className="signUp__back" onClick={() => navigate(-1)}>
         <Back />
         Registro
-      </div>
+      </div>``
       <div className="signUp__content">
         <div className="signUp__form">
           <Input
@@ -95,6 +114,7 @@ const SignUp = () => {
             placeholder="Contraseña"
             value={password}
             setValue={setPassword}
+            type="password"
           />
           <Input
             Icon={Password}
@@ -102,6 +122,7 @@ const SignUp = () => {
             placeholder="ConfirmarContraseña"
             value={confirmPassword}
             setValue={setConfirmPassword}
+            type="password"
           />
         </div>
         <div className="signUp__box">
@@ -119,7 +140,7 @@ const SignUp = () => {
             <div>
               <label
                 className="signUp__image-add"
-                for="upload"    
+                htmlFor="upload"    
                 style={{zIndex:2}}      
               >
                 <div className="signUp__image-label">
@@ -151,4 +172,4 @@ const SignUp = () => {
   )
 }
 
-export default SignUp;
+export default unloggedRoute(SignUp);

@@ -1,16 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState } from 'react';
 
 import { useNavigate } from "react-router-dom";
 
 import Input from "./../../Components/InputSign"
-
+import unloggedRoute from "./../../Hocs/unloggedRoute"
+import { getUsers } from "./../../api/api.services"
 import { ROUTES } from './../../Constants/ROUTES';
-import { User } from './../../Constants/mockedData'
+import { USER } from './../../Constants/mockedData'
 
 import {ReactComponent as Password} from './../../Assets/password.svg';
 import {ReactComponent as At} from './../../Assets/at.svg';
 import {ReactComponent as Back} from './../../Assets/back.svg';
-
 
 
 import './index.scss';
@@ -23,18 +23,33 @@ const SignIn = () => {
   const [error, setError] = useState('');
 
   const handlerSignIn = () => {
-    console.log(User.email)
-    console.log(User.password)
     if (email && password) {
-      if (email.toLowerCase() === User.email.toLowerCase() && password === User.password){
-      navigate(ROUTES.home)
-      } else {
-        setError('El email o la contraseña son incorrectos')
-      }
+      USER.forEach((USER) => {
+        if (email.toLowerCase() === USER.email.toLowerCase() && password === USER.password){
+          navigate(ROUTES.home);
+          localStorage.setItem('nombre', USER.nombre);
+          localStorage.setItem('apellido', USER.apellido);
+          localStorage.setItem('email', USER.email);
+          localStorage.setItem('empresa', USER.empresa);
+          localStorage.setItem('password', USER.password);
+          localStorage.setItem('imgUrl', USER.img_perfil);
+          localStorage.setItem('cuenta', USER.cuenta);
+          localStorage.setItem('rol', USER.rol);
+          localStorage.setItem('accessToken', 'dastffasdtygujfdu8y78672js671lkd8y7apd7dgbsi9ayhsbndsg');
+          } else {
+            setError('El email o la contraseña son incorrectos')
+          }
+      })
     } else {
       setError('Se deben completar todos los campos')
     }
   }
+
+  getUsers().then((response) => {
+    console.log(response)
+  }).catch((err) => {
+    console.log(err)
+  })
 
   return (
     <div className="signIn">
@@ -56,6 +71,7 @@ const SignIn = () => {
           placeholder="Contraseña"
           value={password}
           setValue={setPassword}
+          type="password"
         />
       </div>
       {error && <div className="signIn__error">{error}</div>}
@@ -75,4 +91,4 @@ const SignIn = () => {
   )
 }
 
-export default SignIn;
+export default unloggedRoute(SignIn);

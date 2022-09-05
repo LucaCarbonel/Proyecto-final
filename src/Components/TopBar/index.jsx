@@ -10,6 +10,11 @@ import './index.scss';
 const TopBar = () => {
   let navigate = useNavigate();
 
+  const nombre = localStorage.getItem('nombre')
+  const apellido = localStorage.getItem('apellido')
+  const imgUrl = localStorage.getItem('imgUrl')
+  const beneficios = localStorage.getItem('beneficios')
+
     return (
     <div className="top-bar"> 
       <img 
@@ -22,29 +27,24 @@ const TopBar = () => {
         <div className="top-bar__items-item" onClick={() => navigate(ROUTES.home)}>
           Home
         </div>
-        <div className="top-bar__items-item" onClick={() => navigate(ROUTES.about)}>
-          ¿Quienes somos?
-        </div>
-        <div className="top-bar__items-item" onClick={() => navigate(ROUTES.where)}>
+        <div className="top-bar__items-item" onClick={() => [navigate(ROUTES.where), console.log(beneficios)]}>
           ¿Donde encontrarnos?
         </div>
         <div className="top-bar__items-item" onClick={() => navigate(ROUTES.benefits)}>
           Beneficios
         </div>
       </div>
-      {localStorage.getItem("access-token") ?
+      {localStorage.getItem("accessToken") ?
       (<div className="top-bar__profile">
         <div className="top-bar__profile-all-name">
-          <div className="top-bar__profile-name">
-            Juan
+          <div>
+            {nombre}
           </div>
-          <div className="top-bar__profile-surname">
-            Cito
+          <div>
+            {apellido}
           </div>
         </div>
-        <div className="top-bar__profile-avatar">
-          avatar
-        </div>
+        <img className="top-bar__profile-avatar" src={imgUrl} onClick={() => navigate(ROUTES.profile)}/>
       </div>) 
       : (<>
         <div className="top-bar__buttons">

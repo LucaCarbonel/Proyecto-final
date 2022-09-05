@@ -1,5 +1,3 @@
-/* eslint-disable import/prefer-default-export */
-
 export const ROUTES = {
   about: '/about-us',
   home: '/',
@@ -8,4 +6,5 @@ export const ROUTES = {
   profile: '/profile',
   benefits: '/benefits',
   where: '/where',
+  users: '/users'
 };
