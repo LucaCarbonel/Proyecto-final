@@ -1,0 +1,22 @@
+.where {
+  width: 100vw;
+  height: 100vh;
+
+  &__preview {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.marker {
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.leaflet-div-icon {
+  background: transparent;
+  border: none;
+}
