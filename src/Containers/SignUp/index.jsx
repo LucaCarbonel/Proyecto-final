@@ -119,7 +119,7 @@ const SignUp = () => {
             <div>
               <label
                 className="signUp__image-add"
-                for="upload"    
+                htmlFor="upload"    
                 style={{zIndex:2}}      
               >
                 <div className="signUp__image-label">

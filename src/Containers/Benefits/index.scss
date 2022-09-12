@@ -1,0 +1,97 @@
+@import './../../Constants/colors.scss';
+@import './../../Constants/fonts.scss';
+
+.benefits {
+  width: 94vw;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 3vw;
+
+  &__image {
+    width: 300px;
+    height: 200px;
+    margin-bottom: 60px;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: $tertiary-green;
+    border-style: inset;
+    box-shadow: -10px 10px 8px rgba(32,32,32, 0.5);
+  }
+
+  &__modal {
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: $tertiary-green;
+    border-style: inset;
+    z-index: 1;
+    width: 300px;
+    height: 350px;
+    background-color: $dark;
+    border: none;
+    border-radius: 10px;
+    box-shadow: -10px 10px 8px rgba(32,32,32, 0.5);
+
+    &-image {
+      width: 300px;
+      height: 200px;
+      border-radius: 10px 10px 0 0;
+    }
+
+    &-descripcion {
+      font-family: $Blinker;
+      color: $light;
+      font-size: 14px;
+      margin: 10px;
+      text-align: center;
+    }
+
+    &-empresa {
+      font-family: $Blinker;
+      position: relative;
+      top: 56px;
+      left: 20px;
+      color: $tertiary-yellow;
+      font-size: 14px;
+    }
+
+    &-precio {
+      font-family: $Blinker;
+      position: relative;
+      top: 33px;
+      right: 20px;
+      text-align: end;
+      color: $orange;
+      font-size: 18px;
+    }
+
+    &-overlay {
+      top: 0;
+      position: fixed;
+      width:100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-cross {
+      position: absolute;
+      right: 40px;
+      top: 40px;
+      cursor: pointer;
+    }
+  }
+}
+
+.benefits__image:hover{
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.benefits__modal:focus {
+  outline:0;
+}
