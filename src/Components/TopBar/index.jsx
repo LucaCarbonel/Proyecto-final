@@ -10,6 +10,10 @@ import './index.scss';
 const TopBar = () => {
   let navigate = useNavigate();
 
+  const nombre = localStorage.getItem('nombre')
+  const apellido = localStorage.getItem('apellido')
+  const imgUrl = localStorage.getItem('imgUrl')
+
     return (
     <div className="top-bar"> 
       <img 
@@ -32,19 +36,17 @@ const TopBar = () => {
           Beneficios
         </div>
       </div>
-      {localStorage.getItem("access-token") ?
+      {localStorage.getItem("accessToken") ?
       (<div className="top-bar__profile">
         <div className="top-bar__profile-all-name">
-          <div className="top-bar__profile-name">
-            Juan
+          <div>
+            {nombre}
           </div>
-          <div className="top-bar__profile-surname">
-            Cito
+          <div>
+            {apellido}
           </div>
         </div>
-        <div className="top-bar__profile-avatar">
-          avatar
-        </div>
+        <img className="top-bar__profile-avatar" src={imgUrl} onClick={() => navigate(ROUTES.profile)}/>
       </div>) 
       : (<>
         <div className="top-bar__buttons">

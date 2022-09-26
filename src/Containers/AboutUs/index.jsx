@@ -5,7 +5,7 @@ const AboutUs = () => {
     return (
     <>
       <TopBar/>
-      <div> 
+      <div>
         Soy el AboutUs padre
       </div>
     </>

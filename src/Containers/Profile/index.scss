@@ -1,0 +1,66 @@
+@import './../../Constants/colors.scss';
+@import './../../Constants/fonts.scss';
+
+.profile {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__back {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    width: 120px;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: 400;
+    font-family: $Blinker;
+    cursor: pointer;
+    z-index: 3;
+  }
+
+  &__top {
+    position: absolute;
+    width: 100vw;
+    height: 200px;
+    background-color: $tertiary-green;
+  }
+
+  &__img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    z-index: 3;
+    position: relative;
+    top: 50px;
+    background-color: $light-grey;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  &__name {
+    font-family: $Blinker;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__company {
+    font-family: $Blinker;
+    font-size: 20px;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+  }
+
+  &__icon {
+    margin-right: 10px;
+  }
+}
