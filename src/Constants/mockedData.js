@@ -1,12 +1,64 @@
-const USER = {  
-  nombre:"Nicolas",
-  apellido:"Barreto",
-  email: "NicolasBarreto@gmail.com",
+const USER = [{  
+  nombre:"usario",
+  apellido:"generico",
+  email: "user@gmail.com",
   empresa: "oneTree",
   password: "12345678",
   img_perfil: "https://co.pinterest.com/pin/577234877213934730/",
-  ubicacion: {}
-}
+  ubicacion: {},
+  cuenta: 0,
+},
+{  
+  nombre:"recolector",
+  apellido:"generico",
+  email: "recolector@gmail.com",
+  empresa: "Anima",
+  password: "12345678",
+  img_perfil: "http://www.dondereciclo.org.ar/blog/wp-content/uploads/2013/05/cartonero4-lores.jpg",
+  ubicacion: {},
+  cuenta: 0,
+},
+{  
+  nombre:"beneficiario",
+  apellido:"generico",
+  email: "beneficiario@gmail.com",
+  empresa: "McDonalds",
+  password: "12345678",
+  img_perfil: "https://contacto-rapido.com/img_pages/contacto-kfc.png",
+  ubicacion: {},
+  cuenta: 0,
+},
+{  
+  nombre:"usario2",
+  apellido:"generico",
+  email: "user@gmail.com",
+  empresa: "oneTree",
+  password: "12345678",
+  img_perfil: "https://co.pinterest.com/pin/577234877213934730/",
+  ubicacion: {},
+  cuenta: 130,
+},
+{  
+  nombre:"usario3",
+  apellido:"generico",
+  email: "user@gmail.com",
+  empresa: "oneTree",
+  password: "12345678",
+  img_perfil: "https://co.pinterest.com/pin/577234877213934730/",
+  ubicacion: {},
+  cuenta: 170,
+},
+{  
+  nombre:"usario4",
+  apellido:"generico",
+  email: "user@gmail.com",
+  empresa: "oneTree",
+  password: "12345678",
+  img_perfil: "https://co.pinterest.com/pin/577234877213934730/",
+  ubicacion: {},
+  cuenta: 100,
+},
+]
 
 const BENEFITS = [
   {
@@ -28,9 +80,9 @@ const BENEFITS = [
     precio:"50",
   },
   {
-    descripcion:"Un video del bananero con tu nombre",
+    descripcion:"Un video del bananero con tu nombre y apellido",
     empresa:"SAPEEE",
-    imagen:"https://970universal.com/wp-content/uploads/2020/12/f608x342-588537_618260_0.jpeg",
+    imagen:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQqGAIJthFRX1o_nR4e5uQM7upS3JG0bTlOQ&usqp=CAU",
     precio:"150",
   },
   {

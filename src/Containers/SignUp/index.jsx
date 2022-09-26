@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import { useNavigate } from "react-router-dom";
 
 import Input from "./../../Components/InputSign"
+import unloggedRoute from "./../../Hocs/unloggedRoute"
 
 import { ROUTES } from './../../Constants/ROUTES';
 
@@ -44,6 +45,13 @@ const SignUp = () => {
             if ((email.search('@') === -1 && email.search('.') === -1) || email.search('@') < email.search('.') ) {
               setError('El email no es valido')
             } else {
+              localStorage.setItem('nombre', name);
+              localStorage.setItem('apellido', surname);
+              localStorage.setItem('email', email);
+              localStorage.setItem('empresa', company);
+              localStorage.setItem('password', password);
+              localStorage.setItem('imgUrl', imageView);
+              localStorage.setItem('accessToken', 'jijihufffgfg');
               navigate(ROUTES.home)
             }
           }
@@ -95,6 +103,7 @@ const SignUp = () => {
             placeholder="Contraseña"
             value={password}
             setValue={setPassword}
+            type="password"
           />
           <Input
             Icon={Password}
@@ -102,6 +111,7 @@ const SignUp = () => {
             placeholder="ConfirmarContraseña"
             value={confirmPassword}
             setValue={setConfirmPassword}
+            type="password"
           />
         </div>
         <div className="signUp__box">
@@ -151,4 +161,4 @@ const SignUp = () => {
   )
 }
 
-export default SignUp;
+export default unloggedRoute(SignUp);
