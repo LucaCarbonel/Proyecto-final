@@ -63,4 +63,20 @@
   &__icon {
     margin-right: 10px;
   }
+
+  &__button {
+    display: flex;
+    margin-top: 50px;
+
+    &-logout {
+      font-size: 18px;
+      font-weight: bolder;
+      display: flex;
+      align-items: center;
+      padding: 4px 12px;
+      background-color: $tertiary-green;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+  }
 }

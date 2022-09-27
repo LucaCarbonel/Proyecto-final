@@ -26,9 +26,6 @@ const TopBar = () => {
         <div className="top-bar__items-item" onClick={() => navigate(ROUTES.home)}>
           Home
         </div>
-        <div className="top-bar__items-item" onClick={() => navigate(ROUTES.about)}>
-          ¿Quienes somos?
-        </div>
         <div className="top-bar__items-item" onClick={() => navigate(ROUTES.where)}>
           ¿Donde encontrarnos?
         </div>
