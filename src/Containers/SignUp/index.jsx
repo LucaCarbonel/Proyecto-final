@@ -12,7 +12,7 @@ import {ReactComponent as Password} from './../../Assets/password.svg';
 import {ReactComponent as At} from './../../Assets/at.svg';
 import {ReactComponent as Building} from './../../Assets/building.svg';
 import {ReactComponent as Back} from './../../Assets/back.svg';
-import {ReactComponent as Empty} from './../../Assets/empty.svg'
+import {ReactComponent as Picture} from './../../Assets/picture.svg'
 import {ReactComponent as Plus} from './../../Assets/plus.svg';
 
 import './index.scss';
@@ -42,7 +42,7 @@ const SignUp = () => {
           if(password !== confirmPassword){
             setError('Las contraseñas no son iguales')
           } else {
-            if ((email.search('@') === -1 && email.search('.') === -1) || email.search('@') < email.search('.') ) {
+            if ((email.search('@') === -1 && email.search('.') === -1) || email.search('@') < email.search('.')) {
               setError('El email no es valido')
             } else {
               localStorage.setItem('nombre', name);
@@ -52,6 +52,7 @@ const SignUp = () => {
               localStorage.setItem('password', password);
               localStorage.setItem('imgUrl', imageView);
               localStorage.setItem('accessToken', 'jijihufffgfg');
+              localStorage.setItem('rol', 'generico');
               navigate(ROUTES.home)
             }
           }
@@ -66,7 +67,7 @@ const SignUp = () => {
       <div className="signUp__back" onClick={() => navigate(-1)}>
         <Back />
         Registro
-      </div>
+      </div>``
       <div className="signUp__content">
         <div className="signUp__form">
           <Input
@@ -119,11 +120,11 @@ const SignUp = () => {
             { imageView ? 
               (<img
                 src={imageView}
-                className="signUp__image-view"
+                className="signUp__create-image-view"
                 alt="Foto de perfil"
               />)
-              : (<div className="signUp__image-view" style={{paddingTop: "10px"}}>
-                  <Empty className="signUp__image-empty"/>
+              : (<div className="signUp__create-image-view" style={{paddingTop: "10px"}}>
+                  <Picture className="signUp__create-image-empty"/>
                 </div>)
             }
             <div>

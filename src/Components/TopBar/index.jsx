@@ -13,6 +13,7 @@ const TopBar = () => {
   const nombre = localStorage.getItem('nombre')
   const apellido = localStorage.getItem('apellido')
   const imgUrl = localStorage.getItem('imgUrl')
+  const beneficios = localStorage.getItem('beneficios')
 
     return (
     <div className="top-bar"> 
@@ -26,7 +27,7 @@ const TopBar = () => {
         <div className="top-bar__items-item" onClick={() => navigate(ROUTES.home)}>
           Home
         </div>
-        <div className="top-bar__items-item" onClick={() => navigate(ROUTES.where)}>
+        <div className="top-bar__items-item" onClick={() => [navigate(ROUTES.where), console.log(beneficios)]}>
           ¿Donde encontrarnos?
         </div>
         <div className="top-bar__items-item" onClick={() => navigate(ROUTES.benefits)}>

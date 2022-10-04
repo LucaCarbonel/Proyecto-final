@@ -1,0 +1,102 @@
+@import './../../Constants/colors.scss';
+@import './../../Constants/fonts.scss';
+
+.users{ 
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center ;
+  flex-direction: column;
+
+  &__back {
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    width: 250px;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: 400;
+    font-family: $Blinker;
+    cursor: pointer;
+  }
+
+  &__user {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 10px 10px;
+    margin-top: 20px;
+    height: 60px;
+    align-items: center;
+    border-radius: 40px;
+    max-width: 1000px;
+    min-width: 600px;
+
+
+    &-name{
+      width: 22%;
+      font-family: $Blinker;
+      font-size: 20px;
+      margin-left: 20px;
+      overflow: auto;
+    }
+
+    &-surname{
+      width: 23%;
+      font-size: 20px;
+      font-family: $Blinker; 
+      overflow: auto;
+    }
+
+    &-email{
+      width: 25%; 
+      font-size: 20px;
+      font-family: $Blinker;
+      overflow: auto;
+    }
+
+    &-img{
+      width: 60px;             
+      height: 60px;
+      border-radius: 100%;
+      position: relative;
+      left: 20px;
+    }
+
+    &-add{
+      width: 40px;             
+      height: 40px;
+      border-radius: 100%;     
+      background-color: $grey;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      right: 10px;
+      cursor: pointer;
+    }
+  }
+
+  &__search{
+    width: 78%;
+    max-width: 1000px;
+    min-width: 600px;
+    height: 46px;
+    padding: 5px 20px;
+    font-size: 20px;
+    font-family: $Blinker;
+    border-radius: 40px;
+    border-color: $tertiary-green;
+    border-style: solid;
+    outline: none;
+    margin: 70px 0 20px 0;
+ 
+    &:focus {
+      outline: none;
+      border-color: $primary-green;
+    }
+  }
+}

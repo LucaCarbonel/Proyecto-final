@@ -6,9 +6,10 @@
   width: 100%;
   background-color: $primary-green;
   display: flex;
+  justify-content: space-between;
 
   &__profile {
-    position: fixed;
+    position: relative;
     right: 20px;
     display: flex;
     align-items: center;
