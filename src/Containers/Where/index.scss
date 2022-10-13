@@ -5,6 +5,129 @@
   width: 100vw;
   height: 100vh;
 
+  &__add {
+    z-index: 1000;
+    width: 50px;
+    height: 50px;
+    background-color: $light-grey;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $dark;
+    cursor: pointer;
+    margin-right: 20px;
+    position: absolute;
+    top: 95px;
+    right: -5px;
+    
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__mapEdit {
+    width: 100%;
+    height: 100%;
+    margin: 5px;
+  }
+
+  &__edit {
+
+    &-buttons {
+      display: flex;
+      justify-content: center;
+      height: 30%;
+      align-items: center;
+
+      &-ok {
+        font-family: $Blinker;
+        margin-right: 15px;
+        width: 100px;
+        height: 30px;
+        border-radius: 10px;
+        background-color: $secondary-green;
+        font-size: 16x;
+        color: white;
+        font-weight: bold;
+        letter-spacing: 1.4px;
+        border-color: #2b8c01;
+        border-style: solid;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.9
+        }
+      }
+
+      &-cancel {
+        font-family: $Blinker;
+        margin-left: 15px;
+        width: 100px;
+        height: 30px;
+        border-radius: 10px;
+        background-color: $asterisk;
+        font-size: 16x;
+        color: white;
+        font-weight: bold;
+        letter-spacing: 1.4px;
+        border-color: #a80202;
+        border-style: solid;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.9
+        }
+      }
+    }
+
+    &-input {
+      padding: 5px;
+      margin: 5px;
+      font-family: $Blinker;
+      font-size: 12px
+    }
+
+    &-text {
+      font-family: $Blinker;
+      font-size: 14px;
+      font-weight: bolder;
+      padding: 5px;
+    }
+  }
+
+  &__table {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: $primary-green;
+    padding: 3px;
+
+    &-column {
+      display: flex;
+      flex-direction: column;
+      width: 30%;
+      align-items: center;
+      text-align: center;
+      font-family: $Blinker;
+      font-size: 13px;
+    }
+
+    &-value {
+      width: 100%;
+      text-align: center;
+      font-family: $Blinker;
+      font-size: 15px;
+      font-weight: bold;
+    }
+  }
+
   &__preview {
     width: 100%;
     height: 100%;
@@ -12,6 +135,22 @@
     align-items: center;
     flex-direction: column;
     padding: 3px 0;
+    overflow: hidden;
+
+    &-options {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+    }
+
+    &-box {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
 
     &-header {
       width: 100%;

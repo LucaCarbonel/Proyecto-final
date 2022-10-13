@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { useNavigate } from "react-router-dom";
 
@@ -6,14 +6,14 @@ import Input from "./../../Components/InputSign"
 import unloggedRoute from "./../../Hocs/unloggedRoute"
 
 import { ROUTES } from './../../Constants/ROUTES';
+import { postUser } from '../../Api/index.js';
 
-import {ReactComponent as Avatar} from './../../Assets/avatar.svg';
-import {ReactComponent as Password} from './../../Assets/password.svg';
-import {ReactComponent as At} from './../../Assets/at.svg';
-import {ReactComponent as Building} from './../../Assets/building.svg';
-import {ReactComponent as Back} from './../../Assets/back.svg';
-import {ReactComponent as Empty} from './../../Assets/empty.svg'
-import {ReactComponent as Plus} from './../../Assets/plus.svg';
+import { ReactComponent as Avatar } from './../../Assets/avatar.svg';
+import { ReactComponent as Password } from './../../Assets/password.svg';
+import { ReactComponent as At } from './../../Assets/at.svg';
+import { ReactComponent as Back } from './../../Assets/back.svg';
+import { ReactComponent as Empty } from './../../Assets/empty.svg'
+import { ReactComponent as Plus } from './../../Assets/plus.svg';
 
 import './index.scss';
 
@@ -25,44 +25,42 @@ const SignUp = () => {
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
   const [email, setEmail] = useState('');
-  const [company, setCompany] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
 
   useEffect(() => {
     setImageView(image ? URL.createObjectURL(image) : null)
-  },[image])
+  }, [image])
 
   const handlerSignUp = () => {
     if (name && surname && email && password && confirmPassword) {
-      if(password.length < 8 && confirmPassword.length < 8 ) {
+      if (password.length < 8 && confirmPassword.length < 8) {
         setError('La contraseña debe de tener almenos 8 caracteres')
+      } else {
+        if (password !== confirmPassword) {
+          setError('Las contraseñas no son iguales')
         } else {
-          if(password !== confirmPassword){
-            setError('Las contraseñas no son iguales')
+          if ((email.search('@') === -1 && email.search('.') === -1) || email.search('@') < email.search('.')) {
+            setError('El email no es valido')
           } else {
-            if ((email.search('@') === -1 && email.search('.') === -1) || email.search('@') < email.search('.')) {
-              setError('El email no es valido')
-            } else {
-              localStorage.setItem('nombre', name);
-              localStorage.setItem('apellido', surname);
-              localStorage.setItem('email', email);
-              localStorage.setItem('empresa', company);
-              localStorage.setItem('password', password);
-              localStorage.setItem('imgUrl', imageView);
-              localStorage.setItem('accessToken', 'jijihufffgfg');
-              localStorage.setItem('rol', 'generico');
+            postUser(name, surname, email, password, imageView).then((res) => {
+              console.log(res)
+              localStorage.setItem("refreshToken", res.data.refreshToken)
+              localStorage.setItem("accessToken", res.data.accessToken)
+              localStorage.setItem("ID", res.data.user.ID)
               navigate(ROUTES.home)
-            }
+            })
+            navigate(ROUTES.home)
           }
         }
+      }
     } else {
       setError('Se deben completar todos los campos obligatorios')
     }
   }
 
-    return (
+  return (
     <div className="signUp">
       <div className="signUp__back" onClick={() => navigate(-1)}>
         <Back />
@@ -92,13 +90,6 @@ const SignUp = () => {
             setValue={setEmail}
           />
           <Input
-            Icon={Building}
-            isRequired={false}
-            placeholder="Empresa"
-            value={company}
-            setValue={setCompany}
-          />
-          <Input
             Icon={Password}
             isRequired={true}
             placeholder="Contraseña"
@@ -117,31 +108,31 @@ const SignUp = () => {
         </div>
         <div className="signUp__box">
           <div className="signUp__image">
-            { imageView ? 
+            {imageView ?
               (<img
                 src={imageView}
                 className="signUp__image-view"
                 alt="Foto de perfil"
               />)
-              : (<div className="signUp__image-view" style={{paddingTop: "10px"}}>
-                  <Empty className="signUp__image-empty"/>
-                </div>)
+              : (<div className="signUp__image-view" style={{ paddingTop: "10px" }}>
+                <Empty className="signUp__image-empty" />
+              </div>)
             }
             <div>
               <label
                 className="signUp__image-add"
-                htmlFor="upload"    
-                style={{zIndex:2}}      
+                htmlFor="upload"
+                style={{ zIndex: 2 }}
               >
                 <div className="signUp__image-label">
-                  <Plus style={{position:'absolute'}}/>
+                  <Plus style={{ position: 'absolute' }} />
                 </div>
-                </label>
+              </label>
               <input
                 id="upload"
                 type="file"
                 onChange={(e) => setImage(e.target.files[0])}
-                style={{display:'none'}}
+                style={{ display: 'none' }}
                 className="signUp__image-input"
               />
             </div>
@@ -151,12 +142,12 @@ const SignUp = () => {
       {error && <div className="signUp__error">{error}</div>}
       <div className="signUp__button-box">
         <button className="signUp__button" onClick={() => handlerSignUp()}>
-            Crear usuario
+          Crear usuario
         </button>
       </div>
       <div className="signUp__redirect" onClick={() => navigate(ROUTES.signin)}>
         Ya tienes un usuario?
-        <span style={{textDecoration: "underline"}}>Iniciar sesion</span>
+        <span style={{ textDecoration: "underline" }}>Iniciar sesion</span>
       </div>
     </div>
   )

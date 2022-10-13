@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 import { ROUTES } from './../../Constants/ROUTES';
+import { getUser } from '../../Api/index.js';
 
 import Logo from './../../Assets/logo.png';
 
@@ -10,10 +11,16 @@ import './index.scss';
 const TopBar = () => {
   let navigate = useNavigate();
 
-  const nombre = localStorage.getItem('nombre')
-  const apellido = localStorage.getItem('apellido')
-  const imgUrl = localStorage.getItem('imgUrl')
-  const beneficios = localStorage.getItem('beneficios')
+  const [nombre, setNombre] = useState('')
+  const [apellido, setApellido] = useState('')
+
+  useEffect(() => {
+    getUser(localStorage.getItem("ID")).then((res) => {
+      setNombre(res.data.nombre)
+      setApellido(res.data.apellido)
+    })
+  },[])
+  const imgUrl = "https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.webp";
 
     return (
     <div className="top-bar"> 
@@ -27,7 +34,7 @@ const TopBar = () => {
         <div className="top-bar__items-item" onClick={() => navigate(ROUTES.home)}>
           Home
         </div>
-        <div className="top-bar__items-item" onClick={() => [navigate(ROUTES.where), console.log(beneficios)]}>
+        <div className="top-bar__items-item" onClick={() => navigate(ROUTES.where)}>
           ¿Donde encontrarnos?
         </div>
         <div className="top-bar__items-item" onClick={() => navigate(ROUTES.benefits)}>

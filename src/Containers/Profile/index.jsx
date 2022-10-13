@@ -1,37 +1,43 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import cn from 'classnames';
 
 import loggedRoute from "./../../Hocs/loggedRoute"
 import { ROUTES } from './../../Constants/ROUTES';
+import { getUser, getBenefactor } from '../../Api/index.js';
 
 import {ReactComponent as Back} from './../../Assets/back.svg';
 import {ReactComponent as Building} from './../../Assets/building.svg';
-import {ReactComponent as Maps} from './../../Assets/maps.svg';
 import {ReactComponent as Logout} from './../../Assets/logout.svg';
 import {ReactComponent as Card} from './../../Assets/card.svg';
 
 import './index.scss'
 
 const Profile = () => {
-  const imgUrl = localStorage.getItem('imgUrl')
-  const name = localStorage.getItem('nombre')
-  const surName = localStorage.getItem('apellido')
-  const company = localStorage.getItem('empresa')
-  const ubication = localStorage.getItem('ubicacion')
-  const role = localStorage.getItem('rol')
+  const [name, setname] = useState('')
+  const [surName, setSurname] = useState('')
+  const [role, setRole] = useState('')
+  const [company, setCompany] = useState('')
+
+  const imgUrl = "https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.webp";
+
+  useEffect(() => {
+    getUser(localStorage.getItem("ID")).then((res) => {
+      setname(res.data.nombre)
+      setSurname(res.data.apellido)
+      setRole(res.data.rol)
+      if(res.data.rol === "benefactor") {
+        getBenefactor(localStorage.getItem("ID")).then((res) => {
+          setCompany(res.data.benefactor.empresa)
+        })
+      }
+    })
+  },[])
+  
   const navigate = useNavigate();
 
   const handlerLogout = () => {
-    localStorage.removeItem('nombre');
-    localStorage.removeItem('apellido');
-    localStorage.removeItem('email');
-    localStorage.removeItem('empresa');
-    localStorage.removeItem('password');
-    localStorage.removeItem('imgUrl');
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('rol');
-    console.log(ROUTES)
+    localStorage.clear()
     navigate(ROUTES.home)
   }
   return (
@@ -49,12 +55,6 @@ const Profile = () => {
         <div>{name}</div>
         {surName}
       </div>
-      {ubication && 
-        <div className="profile__company">
-          <Maps className="profile__icon"/>
-          {ubication}
-        </div>
-      }
       {company && 
         <div className="profile__company">
           <Building className="profile__icon"/>

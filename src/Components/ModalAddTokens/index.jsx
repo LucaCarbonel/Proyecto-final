@@ -1,20 +1,25 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import PropTypes from 'prop-types';
+import {format, endOfDay} from 'date-fns'
 
 import {ReactComponent as Cross} from './../../Assets/cross-black.svg';
 import {ReactComponent as Dolar} from './../../Assets/dolar.svg';
+import { postDonation } from "./../../Api/index.js";
 
 import './index.scss';
 
-const ModalAddTokens = ({open, close, name, surname, cuenta, setCuenta}) => {
-  const [tokens, setTokens] = useState(1);
-
-  const handlerPay = (tokens) => {
-    setCuenta(cuenta + tokens)
-    setTokens(1)
-    console.log(tokens)
-    console.log(cuenta)
+const ModalAddTokens = ({open, close, name, surname, recolector, idUser}) => {
+  const [peso, setPeso] = useState(1);
+  const handlerPay = (gramos) => {
+    postDonation(
+      idUser,
+      "plastico",
+      gramos,
+      Math.round(gramos/10),
+      format(endOfDay(new Date()), 'MM dd yyyy'),
+      recolector.recolector.lugarRecoleccion,
+    )
   }
 
   return (
@@ -32,14 +37,14 @@ const ModalAddTokens = ({open, close, name, surname, cuenta, setCuenta}) => {
       <div className="add-tokens-modal__line" />
       <div className="add-tokens-modal__box">
         <div className="add-tokens-modal__value">
-          Valor : 
-          <input className="add-tokens-modal__value-input" type="number" min="1" value={tokens} onChange={(x) => setTokens(x.target.value)} />
+          Peso en g : 
+          <input className="add-tokens-modal__value-input" type="number" min="1" value={peso} onChange={(x) => setPeso(x.target.value)} />
         </div>
         <Dolar className="add-tokens-modal__value-dolar" />
       </div>
       <div className="add-tokens-modal__line" />
       <div className="add-tokens-modal__buttons">
-        <button className="add-tokens-modal__buttons-ok" onClick={() => [handlerPay(tokens), close()]}>
+        <button className="add-tokens-modal__buttons-ok" onClick={() => [handlerPay(peso), close()]}>
           Acreditar
         </button>
         <button className="add-tokens-modal__buttons-cancel" onClick={close}>
@@ -57,6 +62,8 @@ ModalAddTokens.propTypes = {
   surname: PropTypes.string.isRequired,
   cuenta: PropTypes.number.isRrquired,
   setCuenta:PropTypes.func.isRequired,
+  recolector: PropTypes.object.isRequired,
+  idUser: PropTypes.number.isRequired,
 }
 
 export default ModalAddTokens;
