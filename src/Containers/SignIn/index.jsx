@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Input from "./../../Components/InputSign"
 import unloggedRoute from "./../../Hocs/unloggedRoute"
 import { ROUTES } from './../../Constants/ROUTES';
-import { USER, BENEFITS } from './../../Constants/mockedData'
+import { USER } from './../../Constants/mockedData'
 
 import {ReactComponent as Password} from './../../Assets/password.svg';
 import {ReactComponent as At} from './../../Assets/at.svg';
@@ -33,7 +33,6 @@ const SignIn = () => {
           localStorage.setItem('password', USER.password);
           localStorage.setItem('imgUrl', USER.img_perfil);
           localStorage.setItem('rol', USER.rol);
-          localStorage.setItem('beneficios', JSON.stringify(BENEFITS));
           localStorage.setItem('accessToken', 'dastffasdtygujfdu8y78672js671lkd8y7apd7dgbsi9ayhsbndsg');
           } else {
             setError('El email o la contraseña son incorrectos')

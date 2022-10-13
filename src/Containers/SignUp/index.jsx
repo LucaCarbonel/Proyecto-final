@@ -12,7 +12,7 @@ import {ReactComponent as Password} from './../../Assets/password.svg';
 import {ReactComponent as At} from './../../Assets/at.svg';
 import {ReactComponent as Building} from './../../Assets/building.svg';
 import {ReactComponent as Back} from './../../Assets/back.svg';
-import {ReactComponent as Picture} from './../../Assets/picture.svg'
+import {ReactComponent as Empty} from './../../Assets/empty.svg'
 import {ReactComponent as Plus} from './../../Assets/plus.svg';
 
 import './index.scss';
@@ -37,7 +37,7 @@ const SignUp = () => {
   const handlerSignUp = () => {
     if (name && surname && email && password && confirmPassword) {
       if(password.length < 8 && confirmPassword.length < 8 ) {
-        setError('La contraseña debe de tener mas de almenos 8 caracteres')
+        setError('La contraseña debe de tener almenos 8 caracteres')
         } else {
           if(password !== confirmPassword){
             setError('Las contraseñas no son iguales')
@@ -120,11 +120,11 @@ const SignUp = () => {
             { imageView ? 
               (<img
                 src={imageView}
-                className="signUp__create-image-view"
+                className="signUp__image-view"
                 alt="Foto de perfil"
               />)
-              : (<div className="signUp__create-image-view" style={{paddingTop: "10px"}}>
-                  <Picture className="signUp__create-image-empty"/>
+              : (<div className="signUp__image-view" style={{paddingTop: "10px"}}>
+                  <Empty className="signUp__image-empty"/>
                 </div>)
             }
             <div>
