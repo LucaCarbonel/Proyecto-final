@@ -10,10 +10,10 @@ import Home from './../Home';
 import Profile from './../Profile';
 import SignIn from './../SignIn';
 import SignUp from './../SignUp';
-import AboutUs from './../AboutUs';
 import Benefits from './../Benefits';
 import NotFound from './../NotFound';
 import Where from './../Where';
+import Users from './../Users';
 import './index.scss';
 
 const App = () => (
@@ -25,7 +25,7 @@ const App = () => (
       <Route exact path={ROUTES.signin} element={<SignIn/>} />
       <Route exact path={ROUTES.signup} element={<SignUp/>} />
       <Route exact path={ROUTES.where} element={<Where/>} />
-      <Route exact path={ROUTES.about} element={<AboutUs/>} />
+      <Route exact path={ROUTES.users} element={<Users/>} />
       <Route exact path={ROUTES.benefits} element={<Benefits/>} />
     </Routes>
   </BrowserRouter>

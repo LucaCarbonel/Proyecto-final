@@ -1,0 +1,151 @@
+@import './../../Constants/colors.scss';
+@import './../../Constants/fonts.scss';
+
+.add-tokens-modal {
+  width: 80%;
+  max-width: 600px;
+  min-width: 450px;
+  height: 40%;
+  max-height: 400px;
+  min-height: 200px;
+  background-color: white;
+  outline: none;
+  border-radius: 20px;
+
+  &__line {
+    width: 100%;
+    height: 1px;
+    background-color: black;  
+  }
+
+  &__overlay {
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__header {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    align-items: center;
+
+    &-cross {
+      margin-right: 30px;
+      cursor: pointer;
+    }
+  
+    &-name {
+      font-size: 20px;
+      display: flex;
+      font-family: $Blinker;
+      align-items: flex-end;
+    }
+
+    &-bold {
+      font-weight: bold;
+      margin-left: 8px;
+      font-size: 22px;
+    }
+  }
+
+  &__box {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center    
+  }
+
+  &__value {
+    width: 100%;
+    font-size: 24px;
+    font-family: $Blinker;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-input {
+      width: 100px;
+      padding: 2px;
+      padding-left: 25px;
+      font-size: 18px;
+      font-family: $Blinker;
+      height: 25px;
+      margin-left: 10px;
+      border-radius: 10px;
+      outline: none;
+      border-color: $secondary-yellow;
+      border-style: solid;
+
+      &:focus {
+        border-color: $secondary-yellow;
+        overflow-y: hidden;
+      }
+
+      &:hover {
+        overflow-y: hidden;
+      }
+    }
+        
+    &-dolar {
+      position: relative;
+      right: 51%;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    height: 30%;
+    align-items: center;
+
+    &-ok {
+      font-family: $Blinker;
+      margin-right: 15px;
+      width: 100px;
+      height: 30px;
+      border-radius: 10px;
+      background-color: $secondary-green;
+      font-size: 16x;
+      color: white;
+      font-weight: bold;
+      letter-spacing: 1.4px;
+      border-color: #2b8c01;
+      border-style: solid;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.9
+      }
+    }
+
+    &-cancel {
+      font-family: $Blinker;
+      margin-left: 15px;
+      width: 100px;
+      height: 30px;
+      border-radius: 10px;
+      background-color: $asterisk;
+      font-size: 16x;
+      color: white;
+      font-weight: bold;
+      letter-spacing: 1.4px;
+      border-color: #a80202;
+      border-style: solid;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.9
+      }
+    }
+  }
+}

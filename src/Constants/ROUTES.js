@@ -6,4 +6,5 @@ export const ROUTES = {
   profile: '/profile',
   benefits: '/benefits',
   where: '/where',
+  users: '/users'
 };
