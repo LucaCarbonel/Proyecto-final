@@ -8,7 +8,6 @@ import {ReactComponent as Cross} from './../../Assets/cross-white.svg';
 import {ReactComponent as Plus} from './../../Assets/plus-md.svg';
 import {ReactComponent as Picture} from './../../Assets/picture.svg';
 import {ReactComponent as Eye} from './../../Assets/eye.svg';
-
 import './index.scss'
 
 const Benefits = () => {
